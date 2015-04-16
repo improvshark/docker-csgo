@@ -6,8 +6,8 @@ RUN apt-get upgrade -y
 RUN apt-get install curl lib32gcc1 -y
 
 # Expose ports
-EXPOSE 27015
+EXPOSE 27015/udp
+EXPOSE 27015/tcp
 
-# Define default command.
-ENTRYPOINT '/opt/csgo/srcds_run'
-#ENTRYPOINT '/opt/starbound/linux32/starbound_server'
+WORKDIR /opt/csgo
+CMD ["/opt/csgo/srcds_run", "-usercon", "-ip 0.0.0.0"]
