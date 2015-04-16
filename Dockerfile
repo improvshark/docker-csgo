@@ -21,14 +21,13 @@ RUN /opt/steamcmd/steamcmd.sh \
 
 # add settings file
 ADD server.cfg /opt/csgo/csgo/cfg/server.cfg
-
+# create volume
 VOLUME /opt/csgo    
 # Expose ports
 EXPOSE 27015/udp
 EXPOSE 27015/tcp
 
 
-CMD ["/opt/csgo/srcds_run"]
-
-#WORKDIR /opt/csgo
+WORKDIR /opt/csgo
+CMD ["/opt/csgo/srcds_run", "-usercon", "-ip 0.0.0.0"]
 #ENTRYPOINT ["./srcds_run"]
