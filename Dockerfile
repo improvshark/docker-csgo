@@ -30,5 +30,6 @@ EXPOSE 27015/tcp
 
 
 WORKDIR /opt/csgo
-CMD ["/opt/csgo/srcds_run", "-usercon", "-ip 0.0.0.0"]
+#CMD ["/opt/csgo/srcds_run", "-usercon", "-ip 0.0.0.0"]
+CMD ["/opt/csgo/srcds_run", "-usercon", "-ip 0.0.0.0","+host_workshop_collection","429707790","-authkey", "620902E79FE346C9979E073A15674114"]
 #ENTRYPOINT ["./srcds_run"]
